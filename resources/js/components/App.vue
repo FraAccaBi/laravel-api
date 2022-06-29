@@ -1,13 +1,24 @@
 <template>
     <div class="container">
-        WIP
+        <section class="post">
+
+        </section>
     </div>
 </template>
 
 <script>
     export default {
+        data(){
+            return{
+                posts: ''
+            }
+        },
         mounted() {
-            console.log('Component mounted.')
+            axios
+                .get('/api/posts')
+                .then((response) => {
+                    console.log(response);
+                })
         }
     }
 </script>

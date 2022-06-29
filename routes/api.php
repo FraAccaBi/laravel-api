@@ -28,6 +28,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 }); */
 
 Route::get('posts', function(){
-    $posts = Post::all();
+    $posts = Post::with(['tags', 'category'])->paginate(9);
     return $posts;
 });
